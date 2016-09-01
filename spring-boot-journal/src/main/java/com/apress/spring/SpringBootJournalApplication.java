@@ -21,6 +21,8 @@ public class SpringBootJournalApplication {
 	 * 
 	 * mvn spring-boot:run -Dspring.config.name=mycfg
 	 * 
+	 * mvn clean spring-boot:run -Dspring.profiles.active=prod
+	 * 
 	 */
 	
 	private static Logger log = LoggerFactory.getLogger(SpringBootJournalApplication.class);
