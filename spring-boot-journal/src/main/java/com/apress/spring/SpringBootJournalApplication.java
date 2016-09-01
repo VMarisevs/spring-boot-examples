@@ -18,6 +18,9 @@ public class SpringBootJournalApplication {
 	 * mvn spring-boot:run -Dserver.ip=192.168.12.1
 	 * 
 	 * java -jar target/spring-boot-config-0.0.1-SNAPSHOT.jar --server.ip=192.168.12.1
+	 * 
+	 * mvn spring-boot:run -Dspring.config.name=mycfg
+	 * 
 	 */
 	
 	private static Logger log = LoggerFactory.getLogger(SpringBootJournalApplication.class);
