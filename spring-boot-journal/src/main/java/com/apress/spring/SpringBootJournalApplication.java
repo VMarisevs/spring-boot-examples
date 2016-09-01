@@ -54,11 +54,15 @@ public class SpringBootJournalApplication {
 	
 	
 	@Component
-	static
-	class MyComponent{
+	static class MyComponent{
 		
 		private static final Logger log = LoggerFactory.getLogger(MyComponent.class); 
 
+		/*
+		 * mvn spring-boot:run -Drun.arguments="--enable"
+		 * mvn spring-boot:run -Drun.arguments="arg1,arg2"
+		 */
+		
 	     @Autowired
 	     public MyComponent(ApplicationArguments args) {
 	            boolean enable = args.containsOption("enable");
