@@ -8,5 +8,6 @@
   	<module>spring-boot-journal</module>
     <module>spring-boot-testing</module>
     <module>spring-boot-jdbc</module>
+    <module>spring-boot-jpa</module>
   </modules>
 </project>
