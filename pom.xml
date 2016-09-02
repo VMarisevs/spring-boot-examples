@@ -9,5 +9,6 @@
     <module>spring-boot-testing</module>
     <module>spring-boot-jdbc</module>
     <module>spring-boot-jpa</module>
+    <module>spring-boot-mongo</module>
   </modules>
 </project>
