@@ -10,5 +10,6 @@
     <module>spring-boot-jdbc</module>
     <module>spring-boot-jpa</module>
     <module>spring-boot-mongo</module>
+    <module>spring-boot-mysql-jpa-web</module>
   </modules>
 </project>
