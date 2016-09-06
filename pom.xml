@@ -17,5 +17,8 @@
     <module>spring-boot-jms-v2</module>
     <module>spring-boot-rabbitmq</module>
     <module>spring-boot-redis</module>
+    <module>spring-boot-actuator</module>
+    <module>spring-boot-web-actuator</module>
+    <module>spring-boot-websockets</module>
   </modules>
 </project>
