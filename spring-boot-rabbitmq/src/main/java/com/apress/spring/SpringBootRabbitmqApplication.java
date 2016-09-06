@@ -1,14 +1,20 @@
 package com.apress.spring;
 
-import org.springframework.amqp.core.Queue; 
+import java.util.Date;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value; 
 import org.springframework.boot.CommandLineRunner; 
 import org.springframework.boot.SpringApplication; 
 import org.springframework.boot.autoconfigure.SpringBootApplication;     
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import com.apress.spring.rabbitmq.Producer;
 
+@EnableScheduling
 @SpringBootApplication
 public class SpringBootRabbitmqApplication {
 
@@ -33,10 +39,11 @@ public class SpringBootRabbitmqApplication {
 		return new Queue(queue,false);
 	}
 	
-	@Bean
-	CommandLineRunner sender(Producer producer){
-		return args -> {
-			producer.sendTo(queue, "Hello World");
-		};
-	}
+	@Autowired
+    Producer producer;
+
+    @Scheduled(fixedDelay = 500L)
+    public void sendMessages(){
+         producer.sendTo(queue, "Hello World at " + new Date());
+    }
 }
