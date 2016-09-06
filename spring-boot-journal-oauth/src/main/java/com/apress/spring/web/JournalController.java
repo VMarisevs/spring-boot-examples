@@ -12,8 +12,7 @@ import com.apress.spring.repository.JournalRepository;
 public class JournalController {
 
 	private static final String VIEW_INDEX = "index";
-	private static final String VIEW_LOGIN = "login"; 
-
+	
     @Autowired
     JournalRepository repo;
 
@@ -24,13 +23,5 @@ public class JournalController {
        modelAndView.addObject("journal", repo.findAll());
        return modelAndView;
 	}
-    
-	
-	
-	@RequestMapping(value="/login") 
-	public ModelAndView login(ModelAndView modelAndView){ 
-		
-		modelAndView.setViewName(VIEW_LOGIN); 
-		return modelAndView; 
-	}
+
 }
