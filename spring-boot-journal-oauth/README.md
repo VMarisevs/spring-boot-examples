@@ -25,7 +25,7 @@ Connection: keep-alive
 
 {"access_token":"575dfb64-9c95-4bbd-90d6-4328a385900a","token_type":"bearer","refresh_token":"c4034458-bd71-47df-83b4-b4c5e54406ac","expires_in":43199,"scope":"read"}
 
-$ curl -i -H "Authorization: bearer 575dfb64-9c95-4bbd-90d6-4328a385900a" localhost:8080/api
+$ curl -i -H "Authorization: bearer 575dfb64-9c95-4bbd-90d6-4328a385900a" localhost:8080/api -u 6f15a540-3e3d-45eb-a787-381c563c9bce:73c98dd5-ff23-4806-b327-84327d6a7f1e
 ```
 
 http://github.com/felipeg48/pro-spring-boot
