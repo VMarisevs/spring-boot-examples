@@ -32,7 +32,7 @@ Enter key password for <tomcat>
  $ java -jar target/spring-boot-12-journal-0.0.1-SNAPSHOT.jar
  ```
  
-To use profiles simply create a application-<profile>.properties: 
+## To use profiles simply create a application-<profile>.properties: 
  ```
  java -Dspring.profiles.active="container" -jar target/spring-boot-journal-0.0.1-SNAPSHOT.war
  ```
@@ -46,3 +46,32 @@ $ echo spring.profiles.active=container >> catalina.properties
 ```
 
 This command will append the properties to the catalina.properties file (see the double >> ). Next you can start your tc server and see the activated logs and the profile container.
+
+##  run your app as a service
+
+pom.xml
+```
+ <configuration> 
+ 	<executable>true</executable> 
+ </configuration> 
+```
+
+package and run:
+```
+$ ./mvnw clean package -DskipTests=true
+$ target/spring-boot-journal-0.0.1-SNAPSHOT.war
+```
+
+And it will run! So, if you are running a UNIX environment you can just bind it to the /etc/init.d (in a Debian environment, assuming you have the executable in the /opt folder):
+$ ln -s /opt/spring-boot-journal-0.0.1-SNAPSHOT.war /etc/init.d/journal
+Then you can start your application with the following:
+$ service journal start
+So simple! You’ll probably need to set up the run levels where the app might run. You can take a look at your UNIX distribution to see what else you need to do in order to enable the journal app as a service.
+Maybe you are wondering how is this possible. You can take a peek at the file. If you execute the following command:
+$ head -n 242 target/spring-boot-journal-0.0.1-SNAPSHOT.war     
+```
+#!/bin/bash 
+... 
+...
+```
+You will see that the first 242 lines of the file are a BASH script. So, that’s how it runs.
