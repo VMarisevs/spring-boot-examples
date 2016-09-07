@@ -31,3 +31,18 @@ Enter key password for <tomcat>
  $ package -DskipTests=true
  $ java -jar target/spring-boot-12-journal-0.0.1-SNAPSHOT.jar
  ```
+ 
+To use profiles simply create a application-<profile>.properties: 
+ ```
+ java -Dspring.profiles.active="container" -jar target/spring-boot-journal-0.0.1-SNAPSHOT.war
+ ```
+ 
+Now the question is, how can you activate the profiles in a Tomcat-based container? It’s as simple as adding the property spring.profiles.active=container in the <tomcat-installation>/conf/catalina. properties file.
+If you are using the tc server, you can go to the same path (the following commands are based on a Mac installation):
+```
+$ cd /usr/local/Cellar/tcserver/<version>/libexec/
+$ cd myserver/conf 
+$ echo spring.profiles.active=container >> catalina.properties
+```
+
+This command will append the properties to the catalina.properties file (see the double >> ). Next you can start your tc server and see the activated logs and the profile container.
